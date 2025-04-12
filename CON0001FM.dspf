@@ -1,0 +1,305 @@
+     A*%%TS  SD  20250317  203206  TSOCME      REL-V7R5M0  5770-WDS          
+     A*%%EC                                                                  
+     A                                      DSPSIZ(24 80 *DS3)               
+     A                                      CF03(03 'TECLA F03 = SALIR')     
+     A                                      CF06(06 'TECLA F06 = ALTA')      
+     A                                      CF01(01 'TECLA F01 = CONFIRMAR') 
+     A          R CRTSFL                    SFL                              
+     A*%%TS  SD  20250317  203206  TSOCME      REL-V7R5M0  5770-WDS          
+     A            OP             1A  I  7  6DSPATR(UL)                       
+     A            CONCOD         5Y 0O  7  8EDTCDE(Z)                        
+     A            CONNOM        50A  O  7 14                                 
+     A            CONFEC         8Y 0O  7 65EDTWRD('    /  /  ')             
+     A          R CRTCTL                    SFLCTL(CRTSFL)                   
+     A*%%TS  SD  20250317  181238  TSOCME      REL-V7R5M0  5770-WDS          
+     A                                      SFLSIZ(0120)                     
+     A                                      SFLPAG(0013)                     
+     A                                      OVERLAY                          
+     A N92                                  SFLDSP                           
+     A N93                                  SFLDSPCTL                        
+     A  93                                  SFLCLR                                
+     A N91                                  SFLEND(*MORE)                         
+     A                                  1  2SYSNAME                               
+     A                                  1 22'MANTENIMIENTO DE CONTACTOS DE EMPR-  
+     A                                      ESAS'                                 
+     A                                      DSPATR(HI)                            
+     A                                  1 71DATE                                  
+     A                                      EDTCDE(Y)                             
+     A                                  2  2USER                                  
+     A                                  2 71TIME                                  
+     A                                  4 15'OPCIONES:  M: MODIFICA    C: CONSU-  
+     A                                      LTA    D: ELIMINA'                    
+     A                                      DSPATR(HI)                            
+     A                                  5  3'                                  -  
+     A                                                                         -  
+     A                                             '                              
+     A                                      DSPATR(UL)                            
+     A                                  6  4'OPCION ID CONTACTO NOMBRE         -  
+     A                                                                 FEC. CRE-  
+     A                                      ACIÓN'                                
+     A                                      DSPATR(HI)                          
+     A                                      DSPATR(RI)                          
+     A          R CRTCMD                                                        
+     A*%%TS  SD  20250313  230939  TSOCME      REL-V7R5M0  5770-WDS             
+     A                                      OVERLAY                             
+     A                                 21  3'                                  -
+     A                                                                         -
+     A                                              '                           
+     A                                      DSPATR(UL)                          
+     A                                 23 26'F03 = SALIR        F06 = ALTA'     
+     A                                      COLOR(BLU)                          
+     A          R CRTALT                                                        
+     A*%%TS  SD  20250317  203206  TSOCME      REL-V7R5M0  5770-WDS             
+     A                                      CF12(12 'TECLA F12 = CANCELAR')     
+     A                                  1  3SYSNAME                             
+     A                                  1 24'MANTENIMIENTO DE GIRO DE EMPRESAS' 
+     A                                      DSPATR(HI)                          
+     A                                  1 72DATE                                
+     A                                      EDTCDE(Y)                           
+     A                                  2  3USER        
+     A                                  2 72TIME                                  
+     A                                  2 28'ALTA CONTACTO DE EMPRESAS'           
+     A                                      COLOR(BLU)                            
+     A                                  4  3'-----------------------------------  
+     A                                      ------------------------------------  
+     A                                      --------'                             
+     A                                      DSPATR(HI)                            
+     A                                 22  3'-----------------------------------  
+     A                                      ------------------------------------  
+     A                                      ------- '                             
+     A                                      DSPATR(HI)                            
+     A                                  6  3'CODIGO CONTACTO DE EMPRESA....:'     
+     A                                      DSPATR(HI)                            
+     A                                  7  3'NOMBRE CONTACTO..........:'          
+     A                                 13  3'FECHA DE CREACIÓN.............:'     
+     A                                 17  3'USUARIO QUE LO CREÓ...........:'     
+     A                                 22  1' '                                   
+     A                                 23 64'F12 = CANCELAR'                      
+     A                                      COLOR(BLU)                            
+     A            CONCOD         5Y 0B  6 35DSPATR(UL)      
+     A                                      DSPATR(HI)                         
+     A                                      EDTCDE(Z)                          
+     A  25                                  DSPATR(PC)                         
+     A            CONNOM        50A  B  7 30DSPATR(UL)                         
+     A  26                                  DSPATR(PC)                         
+     A            CONFEC         8Y 0B 13 35DSPATR(UL)                         
+     A                                      EDTWRD('    /  /  ')               
+     A  31                                  DSPATR(PC)                         
+     A            CONUSE        40A  B 17 35DSPATR(UL)                         
+     A  33                                  DSPATR(PC)                         
+     A                                 13 47'(AAAA/MM/DD)'                     
+     A                                      DSPATR(RI)                         
+     A            ERRMSG        70A  O 21  5COLOR(RED)                         
+     A                                 15  3'HORA DE CREACIÓN..............:'  
+     A            CONHRA         4Y 0B 15 35EDTWRD('  :  ')                    
+     A                                      DSPATR(UL)                         
+     A  32                                  DSPATR(PC)                         
+     A                                 15 42'(FORMATO 24 HORAS HH:MM)'         
+     A                                      DSPATR(RI)                         
+     A                                 23  5'F01 = CONFIRMAR'    
+     A                                      COLOR(BLU)                          
+     A                                  8  3'APELLIDO CONTACTO........:'        
+     A            CONAPE        50A  B  8 30DSPATR(UL)                          
+     A  27                                  DSPATR(PC)                          
+     A                                  9  3'TELEFONO CONTACTO DE EMPRESA..:'   
+     A            CONTEL        10Y 0B  9 35DSPATR(UL)                          
+     A                                      EDTCDE(Z)                           
+     A  28                                  DSPATR(PC)                          
+     A                                 10  3'CELULAR CONTACTO DE EMPRESA...:'   
+     A            CONCEL        10Y 0B 10 35EDTCDE(Z)                           
+     A                                      DSPATR(UL)                          
+     A  29                                  DSPATR(PC)                          
+     A                                 11  3'EMAIL CONTACTO EMPRESA...:'        
+     A            COMP01        50A  B 11 30DSPATR(UL)                          
+     A  30                                  DSPATR(PC)                          
+     A            COMP02        50A  B 12 30DSPATR(UL)                          
+     A          R CRTCON                                                        
+     A*%%TS  SD  20250317  203206  TSOCME      REL-V7R5M0  5770-WDS             
+     A                                      CF12(12 'TECLA F12 = CANCELAR')     
+     A                                  1  3SYSNAME                            
+     A                                  1 24'MANTENIMIENTO DE GIRO DE EMPRESAS'  
+     A                                      DSPATR(HI)                           
+     A                                  1 72DATE                                 
+     A                                      EDTCDE(Y)                            
+     A                                  2  3USER                                 
+     A                                  2 72TIME                                 
+     A                                  2 26'CONSULTA CONTACTO DE EMPRESAS'      
+     A                                      COLOR(BLU)                           
+     A                                  4  3'----------------------------------- 
+     A                                      ------------------------------------ 
+     A                                      --------'                            
+     A                                      DSPATR(HI)                           
+     A                                 22  3'----------------------------------- 
+     A                                      ------------------------------------ 
+     A                                      ------- '                            
+     A                                      DSPATR(HI)                           
+     A                                  6  3'CODIGO CONTACTO DE EMPRESA....:'    
+     A                                      DSPATR(HI)                           
+     A                                  7  3'NOMBRE CONTACTO..........:'         
+     A                                 13  3'FECHA DE CREACIÓN.............:'  
+     A                                 17  3'USUARIO QUE LO CREÓ...........:'    
+     A                                 22  1' '                                  
+     A                                 23 64'F12 = CANCELAR'                     
+     A                                      COLOR(BLU)                           
+     A            CONCOD         5Y 0O  6 35DSPATR(UL)                           
+     A                                      DSPATR(HI)                           
+     A                                      EDTCDE(Z)                            
+     A  25                                  DSPATR(PC)                           
+     A            CONNOM        50A  O  7 30DSPATR(UL)                           
+     A  26                                  DSPATR(PC)                           
+     A            CONFEC         8Y 0O 13 35DSPATR(UL)                           
+     A                                      EDTWRD('    /  /  ')                 
+     A  27                                  DSPATR(PC)                           
+     A            CONUSE        40A  O 17 35DSPATR(UL)                           
+     A  29                                  DSPATR(PC)                           
+     A                                 13 47'(AAAA/MM/DD)'                       
+     A                                      DSPATR(RI)                           
+     A            ERRMSG        70A  O 21  5COLOR(RED)                           
+     A                                 15  3'HORA DE CREACIÓN..............:'    
+     A            CONHRA         4Y 0O 15 35EDTWRD('  :  ')    
+     A                                      DSPATR(UL)                          
+     A  28                                  DSPATR(PC)                          
+     A                                 15 42'(FORMATO 24 HORAS HH:MM)'          
+     A                                      DSPATR(RI)                          
+     A                                 23  5'F01 = CONFIRMAR'                   
+     A                                      COLOR(BLU)                          
+     A                                  8  3'APELLIDO CONTACTO........:'        
+     A            CONAPE        50A  O  8 30DSPATR(UL)                          
+     A                                  9  3'TELEFONO CONTACTO DE EMPRESA..:'   
+     A            CONTEL        10Y 0O  9 35DSPATR(UL)                          
+     A                                      EDTCDE(Z)                           
+     A                                 10  3'CELULAR CONTACTO DE EMPRESA...:'   
+     A            CONCEL        10Y 0O 10 35EDTCDE(Z)                           
+     A                                 11  3'EMAIL CONTACTO EMPRESA...:'        
+     A            COMP01        50A  O 11 30DSPATR(UL)                          
+     A            COMP02        50A  O 12 30DSPATR(UL)                          
+     A          R CRTDEL                                                        
+     A*%%TS  SD  20250317  203206  TSOCME      REL-V7R5M0  5770-WDS             
+     A                                      CF12(12 'TECLA F12 = CANCELAR')     
+     A                                  1  3SYSNAME                         
+     A                                  1 24'MANTENIMIENTO DE GIRO DE EMPRESAS'  
+     A                                      DSPATR(HI)                           
+     A                                  1 72DATE                                 
+     A                                      EDTCDE(Y)                            
+     A                                  2  3USER                                 
+     A                                  2 72TIME                                 
+     A                                  2 27'ELIMINACION CONTACTO EMPRESA'       
+     A                                      COLOR(BLU)                           
+     A                                  4  3'----------------------------------- 
+     A                                      ------------------------------------ 
+     A                                      --------'                            
+     A                                      DSPATR(HI)                           
+     A                                 22  3'----------------------------------- 
+     A                                      ------------------------------------ 
+     A                                      ------- '                            
+     A                                      DSPATR(HI)                           
+     A                                  6  3'CODIGO CONTACTO DE EMPRESA....:'    
+     A                                      DSPATR(HI)                           
+     A                                  7  3'NOMBRE CONTACTO..........:'         
+     A                                 13  3'FECHA DE CREACIÓN.............:'                          
+     A                                 17  3'USUARIO QUE LO CREÓ...........:'
+     A                                 22  1' '                              
+     A                                 23 64'F12 = CANCELAR'                 
+     A                                      COLOR(BLU)                       
+     A            CONCOD         5Y 0O  6 35DSPATR(UL)                       
+     A                                      DSPATR(HI)                       
+     A                                      EDTCDE(Z)                        
+     A  25                                  DSPATR(PC)                       
+     A            CONNOM        50A  O  7 30DSPATR(UL)                       
+     A  26                                  DSPATR(PC)                       
+     A            CONFEC         8Y 0O 13 35DSPATR(UL)                       
+     A                                      EDTWRD('    /  /  ')             
+     A  27                                  DSPATR(PC)                       
+     A            CONUSE        40A  O 17 35DSPATR(UL)                       
+     A  29                                  DSPATR(PC)                       
+     A                                 13 47'(AAAA/MM/DD)'                   
+     A                                      DSPATR(RI)                       
+     A            ERRMSG        70A  O 21  5COLOR(RED)                       
+     A                                 15  3'HORA DE CREACIÓN..............:'
+     A            CONHRA         4Y 0O 15 35EDTWRD('  :  ')                  
+     A                                      DSPATR(UL)                        
+     A  28                                  DSPATR(PC)                        
+     A                                 15 42'(FORMATO 24 HORAS HH:MM)'        
+     A                                      DSPATR(RI)                        
+     A                                 23  5'F01 = CONFIRMAR'                 
+     A                                      COLOR(BLU)                        
+     A                                  8  3'APELLIDO CONTACTO........:'      
+     A            CONAPE        50A  O  8 30DSPATR(UL)                        
+     A                                  9  3'TELEFONO CONTACTO DE EMPRESA..:' 
+     A            CONTEL        10Y 0O  9 35DSPATR(UL)                        
+     A                                      EDTCDE(Z)                         
+     A                                 10  3'CELULAR CONTACTO DE EMPRESA...:' 
+     A            CONCEL        10Y 0O 10 35EDTCDE(Z)                         
+     A                                 11  3'EMAIL CONTACTO EMPRESA...:'      
+     A            COMP01        50A  O 11 30DSPATR(UL)                        
+     A            COMP02        50A  O 12 30DSPATR(UL)                        
+     A          R CRTMOD                                                      
+     A*%%TS  SD  20250317  203206  TSOCME      REL-V7R5M0  5770-WDS           
+     A                                      CF12(12 'TECLA F12 = CANCELAR')   
+     A                                  1  3SYSNAME          
+     A                                  1 24'MANTENIMIENTO DE GIRO DE EMPRESAS'  
+     A                                      DSPATR(HI)                           
+     A                                  1 72DATE                                 
+     A                                      EDTCDE(Y)                            
+     A                                  2  3USER                                 
+     A                                  2 72TIME                                 
+     A                                  2 26'MODIFICAR CONTACTO DE EMPRESA'      
+     A                                      COLOR(BLU)                           
+     A                                  4  3'----------------------------------- 
+     A                                      ------------------------------------ 
+     A                                      --------'                            
+     A                                      DSPATR(HI)                           
+     A                                 22  3'----------------------------------- 
+     A                                      ------------------------------------ 
+     A                                      ------- '                            
+     A                                      DSPATR(HI)                           
+     A                                  6  3'CODIGO CONTACTO DE EMPRESA....:'    
+     A                                      DSPATR(HI)                           
+     A                                  7  3'NOMBRE CONTACTO..........:'         
+     A                                 13  3'FECHA DE CREACIÓN.............:' 
+     A                                 17  3'USUARIO QUE LO CREÓ...........:'  
+     A                                 22  1' '                                
+     A                                 23 64'F12 = CANCELAR'                   
+     A                                      COLOR(BLU)                         
+     A            CONCOD         5Y 0O  6 35DSPATR(UL)                         
+     A                                      DSPATR(HI)                         
+     A                                      EDTCDE(Z)                          
+     A  25                                  DSPATR(PC)                         
+     A            CONNOM        50A  B  7 30DSPATR(UL)                         
+     A  26                                  DSPATR(PC)                         
+     A            CONFEC         8Y 0B 13 35DSPATR(UL)                         
+     A                                      EDTWRD('    /  /  ')               
+     A  31                                  DSPATR(PC)                         
+     A            CONUSE        40A  B 17 35DSPATR(UL)                         
+     A  33                                  DSPATR(PC)                         
+     A                                 13 47'(AAAA/MM/DD)'                     
+     A                                      DSPATR(RI)                         
+     A            ERRMSG        70A  O 21  5COLOR(RED)                         
+     A                                 15  3'HORA DE CREACIÓN..............:'  
+     A            CONHRA         4Y 0B 15 35EDTWRD('  :  ')       
+     A                                      DSPATR(UL)                         
+     A  32                                  DSPATR(PC)                         
+     A                                 15 42'(FORMATO 24 HORAS HH:MM)'         
+     A                                      DSPATR(RI)                         
+     A                                 23  5'F01 = CONFIRMAR'                  
+     A                                      COLOR(BLU)                         
+     A                                  8  3'APELLIDO CONTACTO........:'       
+     A            CONAPE        50A  B  8 30DSPATR(UL)                         
+     A  27                                  DSPATR(PC)                         
+     A                                  9  3'TELEFONO CONTACTO DE EMPRESA..:'  
+     A            CONTEL        10Y 0B  9 35DSPATR(UL)                         
+     A                                      EDTCDE(Z)                          
+     A  28                                  DSPATR(PC)                         
+     A                                 10  3'CELULAR CONTACTO DE EMPRESA...:'  
+     A            CONCEL        10Y 0B 10 35EDTCDE(Z)                          
+     A                                      DSPATR(UL)                         
+     A  29                                  DSPATR(PC)                         
+     A                                 11  3'EMAIL CONTACTO EMPRESA...:'       
+     A            COMP01        50A  B 11 30DSPATR(UL)                         
+     A  30                                  DSPATR(PC)     
+     A            COMP02        50A  B 12 30DSPATR(UL)                                   
+   
+                 
+  
+                                     
+                        
