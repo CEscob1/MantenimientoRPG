@@ -1,0 +1,235 @@
+     A*%%TS  SD  20250317  163757  TSOCME      REL-V7R5M0  5770-WDS          
+     A*%%EC                                                                  
+     A                                      DSPSIZ(24 80 *DS3)               
+     A                                      CF03(03 'TECLA F03 = SALIR')     
+     A                                      CF06(06 'TECLA F06 = ALTA')      
+     A                                      CF01(01 'TECLA F01 = CONFIRMAR') 
+     A          R CRTSFL                    SFL                              
+     A*%%TS  SD  20250317  161023  TSOCME      REL-V7R5M0  5770-WDS          
+     A            OP             1A  I  7  6DSPATR(UL)                       
+     A            GROCOD         5Y 0O  7 12EDTCDE(Z)                        
+     A            GRODES        40A  O  7 23                                 
+     A            GROFEC         8Y 0O  7 66EDTWRD('    /  /  ')             
+     A          R CRTCTL                    SFLCTL(CRTSFL)                   
+     A*%%TS  SD  20250313  233353  TSOCME      REL-V7R5M0  5770-WDS          
+     A                                      OVERLAY                          
+     A N92                                  SFLDSP                           
+     A N93                                  SFLDSPCTL                        
+     A  93                                  SFLCLR                           
+     A N91                                  SFLEND(*MORE)                    
+     A                                      SFLSIZ(0120)                           
+     A                                      SFLPAG(0013)                           
+     A                                  1  2SYSNAME                                
+     A                                  1 24'MANTENIMIENTO DE GIRO DE EMPRESAS'    
+     A                                      DSPATR(HI)                             
+     A                                  1 71DATE                                   
+     A                                      EDTCDE(Y)                              
+     A                                  2  2USER                                   
+     A                                  2 71TIME                                   
+     A                                  4 15'OPCIONES:  M: MODIFICA    C: CONSU-   
+     A                                      LTA    D: ELIMINA'                     
+     A                                      DSPATR(HI)                             
+     A                                  5  3'                                  -   
+     A                                                                         -   
+     A                                             '                               
+     A                                      DSPATR(UL)                             
+     A                                  6  4'OPCION  COD. GIRO  DESCRIPCIÓN    -   
+     A                                                                 FEC. CRE-   
+     A                                      ACIÓN'                                 
+     A                                      DSPATR(HI)                             
+     A                                      DSPATR(RI)                           
+     A          R CRTCMD                                                         
+     A*%%TS  SD  20250313  230939  TSOCME      REL-V7R5M0  5770-WDS              
+     A                                      OVERLAY                              
+     A                                 21  3'                                  - 
+     A                                                                         - 
+     A                                              '                            
+     A                                      DSPATR(UL)                           
+     A                                 23 26'F03 = SALIR        F06 = ALTA'      
+     A                                      COLOR(BLU)                           
+     A          R CRTALT                                                         
+     A*%%TS  SD  20250317  162456  TSOCME      REL-V7R5M0  5770-WDS              
+     A                                      CF12(12 'TECLA F12 = CANCELAR')      
+     A                                  1  3SYSNAME                              
+     A                                  1 24'MANTENIMIENTO DE GIRO DE EMPRESAS'  
+     A                                      DSPATR(HI)                           
+     A                                  1 72DATE                                 
+     A                                      EDTCDE(Y)                            
+     A                                  2  3USER                                 
+     A                                  2 72TIME                                 
+     A                                  2 28'ALTA NUEVO GIRO DE EMPRESA'         
+     A                                      COLOR(BLU)                           
+     A                                  4  3'----------------------------------- 
+     A                                      ------------------------------------ 
+     A                                      --------'                            
+     A                                      DSPATR(HI)                           
+     A                                 22  3'----------------------------------- 
+     A                                      ------------------------------------ 
+     A                                      ------- '                            
+     A                                      DSPATR(HI)                           
+     A                                  9  8'CODIGO GIRO DE EMPRESA........:'    
+     A                                      DSPATR(HI)                           
+     A                                 11  8'DESCRIPCIÓN GIRO DE EMPRESA...:'    
+     A                                 13  8'FECHA DE CREACIÓN.............:'    
+     A                                 17  8'USUARIO QUE LO CREÓ...........:'    
+     A                                 22  1' '                                  
+     A                                 23 64'F12 = CANCELAR'                     
+     A                                      COLOR(BLU)                           
+     A            GROCOD         5Y 0B  9 40DSPATR(UL)                           
+     A                                      DSPATR(HI)   
+     A                                      EDTCDE(Z)                         
+     A  25                                  DSPATR(PC)                        
+     A            GRODES        40A  B 11 40DSPATR(UL)                        
+     A  26                                  DSPATR(PC)                        
+     A            GROFEC         8Y 0B 13 40DSPATR(UL)                        
+     A                                      EDTWRD('    /  /  ')              
+     A  27                                  DSPATR(PC)                        
+     A            GROUSE        40A  B 17 40DSPATR(UL)                        
+     A  29                                  DSPATR(PC)                        
+     A                                 13 51'(AAAA/MM/DD)'                    
+     A                                      DSPATR(RI)                        
+     A            ERRMSG        70A  O 21  5COLOR(RED)                        
+     A                                 15  8'HORA DE CREACIÓN..............:' 
+     A            GROHRA         4Y 0B 15 40EDTWRD('  :  ')                   
+     A                                      DSPATR(UL)                        
+     A  28                                  DSPATR(PC)                        
+     A                                 15 48'(FORMATO 24 HORAS HH:MM)'        
+     A                                      DSPATR(RI)                        
+     A                                 23  5'F01 = CONFIRMAR'                 
+     A                                      COLOR(BLU)        
+     A          R CRTMOD                                                               
+     A*%%TS  SD  20250317  163757  TSOCME      REL-V7R5M0  5770-WDS                    
+     A                                      CF12(12 'TECLA F12 = CANCELAR')            
+     A                                  1  3SYSNAME                                    
+     A                                  1 24'MANTENIMIENTO DE GIRO DE EMPRESAS'        
+     A                                      DSPATR(HI)                                 
+     A                                  1 72DATE                                       
+     A                                      EDTCDE(Y)                                  
+     A                                  2  3USER                                       
+     A                                  2 72TIME                                       
+     A                                  2 26'MODIFICACION GIRO DE EMPRESAS'            
+     A                                      COLOR(BLU)                                 
+     A                                  4  3'-----------------------------------       
+     A                                      ------------------------------------       
+     A                                      --------'                                  
+     A                                      DSPATR(HI)                                 
+     A                                 22  3'-----------------------------------       
+     A                                      ------------------------------------       
+     A                                      ------- '                                  
+     A                                      DSPATR(HI)                                 
+     A                                  9  8'CODIGO GIRO DE EMPRESA........:' 
+     A                                      DSPATR(HI)                        
+     A                                 11  8'DESCRIPCIÓN GIRO DE EMPRESA...:' 
+     A                                 13  8'FECHA DE CREACIÓN.............:' 
+     A                                 17  8'USUARIO QUE LO CREÓ...........:' 
+     A                                 22  1' '                               
+     A                                 23 64'F12 = CANCELAR'                  
+     A                                      COLOR(BLU)                        
+     A            GROCOD         5Y 0O  9 40DSPATR(UL)                        
+     A                                      DSPATR(HI)                        
+     A                                      EDTCDE(Z)                         
+     A            GRODES        40A  B 11 40DSPATR(UL)                        
+     A  26                                  DSPATR(PC)                        
+     A            GROFEC         8Y 0B 13 40DSPATR(UL)                        
+     A                                      EDTWRD('    /  /  ')              
+     A  27                                  DSPATR(PC)                        
+     A            GROUSE        40A  B 17 40DSPATR(UL)                        
+     A  29                                  DSPATR(PC)                        
+     A                                 13 52'(AAAA/MM/DD)'                    
+     A                                      DSPATR(RI)                        
+     A            ERRMSG        70A  O 21  5COLOR(RED)                            
+     A                                 15  8'HORA DE CREACIÓN..............:'     
+     A            GROHRA         4Y 0B 15 40EDTWRD('  :  ')                       
+     A                                      DSPATR(UL)                            
+     A  28                                  DSPATR(PC)                            
+     A                                 15 48'(FORMATO 24 HORAS HH:MM)'            
+     A                                      DSPATR(RI)                            
+     A                                 23  5'F01 = CONFIRMAR'                     
+     A                                      COLOR(BLU)                            
+     A          R CRTDEL                                                          
+     A*%%TS  SD  20250317  153311  TSOCME      REL-V7R5M0  5770-WDS               
+     A                                      CF12(12 'TECLA F12 = CANCELAR')       
+     A                                      CF11(11 'TECLA F11 = CONFIRMAR')      
+     A                                  1  3SYSNAME                               
+     A                                  1 24'MANTENIMIENTO DE GIRO DE EMPRESAS'   
+     A                                      DSPATR(HI)                            
+     A                                  1 72DATE                                  
+     A                                      EDTCDE(Y)                             
+     A                                  2  3USER                                  
+     A                                  2 72TIME                                  
+     A                                  2 26'ELIMINACION GIRO DE EMPRESAS'          
+     A                                      COLOR(BLU)                              
+     A                                  4  3'-----------------------------------    
+     A                                      ------------------------------------    
+     A                                      --------'                               
+     A                                      DSPATR(HI)                              
+     A                                 22  3'-----------------------------------    
+     A                                      ------------------------------------    
+     A                                      ------- '                               
+     A                                      DSPATR(HI)                              
+     A                                  9  8'CODIGO GIRO DE EMPRESA........:'       
+     A                                      DSPATR(HI)                              
+     A                                 11  8'DESCRIPCIÓN GIRO DE EMPRESA...:'       
+     A                                 13  8'FECHA DE CREACIÓN.............:'       
+     A                                 17  8'USUARIO QUE LO CREÓ...........:'       
+     A                                 22  1' '                                     
+     A                                 23 64'F12 = CANCELAR'                        
+     A                                      COLOR(BLU)                              
+     A            GROCOD         5Y 0O  9 40DSPATR(UL)                              
+     A                                      DSPATR(HI)                              
+     A                                      EDTCDE(Z)                                 
+     A            GRODES        40A  O 11 40DSPATR(UL)                                
+     A            GROFEC         8Y 0O 13 40DSPATR(UL)                                
+     A                                      EDTWRD('    /  /  ')                      
+     A            GROUSE        40A  O 17 40DSPATR(UL)                                
+     A                                 13 51'(AAAA/MM/DD)'                            
+     A                                      DSPATR(RI)                                
+     A                                 23  4'F11 = CONFIRMAR'                         
+     A                                      COLOR(BLU)                                
+     A                                 15  8'HORA DE CREACIÓN..............:'         
+     A            GROHRA         4Y 0O 15 40DSPATR(UL)                                
+     A                                      EDTWRD('  :  ')                           
+     A                                 15 48'(FORMATO 24 HORAS HH:MM)'                
+     A                                      DSPATR(RI)                                
+     A          R CRTCON                                                              
+     A*%%TS  SD  20250317  153311  TSOCME      REL-V7R5M0  5770-WDS                   
+     A                                      CF12(12 'TECLA F12 = CANCELAR')           
+     A                                  1  3SYSNAME                                   
+     A                                  1 24'MANTENIMIENTO DE GIRO DE EMPRESAS'       
+     A                                      DSPATR(HI)         
+     A                                  1 72DATE                                    
+     A                                      EDTCDE(Y)                               
+     A                                  2  3USER                                    
+     A                                  2 72TIME                                    
+     A                                  4  3'-----------------------------------    
+     A                                      ------------------------------------    
+     A                                      --------'                               
+     A                                      DSPATR(HI)                              
+     A                                 22  3'-----------------------------------    
+     A                                      ------------------------------------    
+     A                                      ------- '                               
+     A                                      DSPATR(HI)                              
+     A                                  9  8'CODIGO GIRO DE EMPRESA........:'       
+     A                                      DSPATR(HI)                              
+     A                                 11  8'DESCRIPCIÓN GIRO DE EMPRESA...:'       
+     A                                 13  8'FECHA DE CREACIÓN.............:'       
+     A                                 17  8'USUARIO QUE LO CREÓ...........:'       
+     A                                 22  1' '                                     
+     A                                 23  5'F12 = CANCELAR'                        
+     A                                      COLOR(BLU)                      
+     A            GROCOD         5Y 0O  9 40DSPATR(UL)                        
+     A                                      DSPATR(HI)                        
+     A                                      EDTCDE(Z)                         
+     A            GRODES        40A  O 11 40DSPATR(UL)                        
+     A            GROFEC         8Y 0O 13 40DSPATR(UL)                        
+     A                                      EDTWRD('    /  /  ')              
+     A            GROUSE        40A  O 17 40DSPATR(UL)                        
+     A                                 13 51'(AAAA/MM/DD)'                    
+     A                                      DSPATR(RI)                        
+     A                                  2 27'CONSULTA DE GIRO DE EMPRESAS'    
+     A                                      COLOR(BLU)                        
+     A                                 15  8'HORA DE CREACIÓN..............:' 
+     A            GROHRA         4Y 0O 15 40DSPATR(UL)                        
+     A                                      EDTWRD('  :  ')                   
+     A                                 15 48'(FORMATO 24 HORAS HH:MM)'        
+     A                                      DSPATR(RI)                                                       
