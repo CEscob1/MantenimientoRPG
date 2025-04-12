@@ -1,0 +1,14 @@
+     A**-------------------------------------------------------------------- 
+     A**   AUTOR: CARLOS MAURICIO ESCOBAR AGUILAR                            
+     A**   DESCRIPCION: MAESTRO DE GIRO DE EMPRESAS                          
+     A**-------------------------------------------------------------------- 
+     A                                      UNIQUE                           
+     A          R RMAEGRO                   TEXT('FORMATO MAESTRO DE GIROS') 
+     A            GROCOD         5S 0       COLHDG('CODIGO DE GIRO')         
+     A            GRODES        40A         COLHDG('DESCRIPCION GIRO')       
+     A            GROFEC         8S 0       COLHDG('FECHA CREACION')         
+     A            GROHRA         4S 0       COLHDG('HORA CREACION')          
+     A            GROUSE        40A         COLHDG('USUARIO DE CREACION')    
+     A            GROFIL        64A         COLHDG('CAMPO AUXILIAR')         
+     A* CLAVE PRIMARIA                                                       
+     A          K GROCOD                                                     

@@ -1,0 +1,23 @@
+     A**--------------------------------------------------------------------    
+     A**   AUTOR: CARLOS MAURICIO ESCOBAR AGUILAR                               
+     A**   DESCRIPCION: MAESTRO DE EMPRESAS                                     
+     A**--------------------------------------------------------------------    
+     A                                      UNIQUE                              
+     A          R RMAEEMP                   TEXT('FORMATO MAESTRO DE EMPRESAS') 
+     A            EMPCOD         5S 0       COLHDG('CODIGO DE EMPRESA')         
+     A            EMPNOM        40A         COLHDG('NOMBRE DE EMPRESA')         
+     A            EMPRFC        12A         COLHDG('CODIGO DE RCF')             
+     A            EMPGRO         5S 0       COLHDG('CODIGO DE GIRO')            
+     A            EMPGDT        40A         COLHDG('DESC. DE GIRO')             
+     A            EMPDR1        40A         COLHDG('DIR. 1 EMPRESA')            
+     A            EMPDR2        40A         COLHDG('DIR. 2 EMPRESA')            
+     A            EMPEST        30A         COLHDG('ESTADO')                    
+     A            EMPTEL        10S 0       COLHDG('NO. TELEFONO.')             
+     A            EMPCEL        10S 0       COLHDG('NO. CELULAR')               
+     A            EMPPAI        20A         COLHDG('PAIS')                      
+     A            EMPMAIL      100A         COLHDG('CORREO DE EMPRESA')         
+     A            EMPCID         5S 0       COLHDG('CODIGO CONTACTO')       
+     A            EMPRPT        50A         COLHDG('REPRESENTANTE') 
+     A            EMPFEC         8S 0       COLHDG('FEC. CREACION') 
+     A* CLAVE PRIMARIA                                              
+     A          K EMPCOD                                                

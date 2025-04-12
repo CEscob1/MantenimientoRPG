@@ -1,0 +1,18 @@
+     A**-------------------------------------------------------------------- 
+     A**   AUTOR: CARLOS MAURICIO ESCOBAR AGUILAR                            
+     A**   DESCRIPCION: MAESTRO DE CONTACTO DE EMPRESAS                      
+     A**-------------------------------------------------------------------- 
+     A                                      UNIQUE                           
+     A          R RMAECON                   TEXT('MAESTRO DE CONTACTO')      
+     A            CONCOD         5S 0       COLHDG('CODIGO CONTACTO')        
+     A            CONNOM        50A         COLHDG('NOMBRE CONTACTO')        
+     A            CONAPE        50A         COLHDG('APELLIDO CONTACTO')      
+     A            CONTEL        10S 0       COLHDG('TEL CONTACTO')           
+     A            CONCEL        10S 0       COLHDG('CEL CONTACTO')           
+     A            CONMAIL      100A         COLHDG('EMAIL CONTACTO')         
+     A            CONFEC         8S 0       COLHDG('FEC CREACION')           
+     A            CONHRA         4S 0       COLHDG('HORA CREACION')          
+     A            CONUSE        40A         COLHDG('USUARIO CREDOR')         
+     A            CONFIL        64A         COLHDG('CAMPO AUXILIAR')         
+     A* CLAVE PRIMARIA                                                       
+     A          K CONCOD                                                     
