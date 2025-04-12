@@ -1,0 +1,334 @@
+     A*%%TS  SD  20250320  173824  TSOCME      REL-V7R5M0  5770-WDS             
+     A*%%EC                                                                     
+     A                                      DSPSIZ(24 80 *DS3)                  
+     A                                      CF01(01 'TECLA F01 = LISTA GIROS')  
+     A                                      CF03(03 'TECLA F03 = SALIR')        
+     A                                      CF06(06 'TECLA F06 = ALTA')         
+     A                                      CF04(04 'TECLA F04 = AYUDA')        
+     A                                      CF09(09 'TECLA F09 = IMPRIMIR REPOR-
+     A                                      TE')                                
+     A          R SFL001                    SFL                                 
+     A*%%TS  SD  20250315  003218  TSOCME      REL-V7R5M0  5770-WDS             
+     A            OP             1A  I  7  3                                    
+     A            EMPNOM        40A  O  7 13                                    
+     A            EMPGRO         5Y 0O  7 55EDTCDE(Z)                           
+     A            EMPCOD         5Y 0O  7  6EDTCDE(Z)                           
+     A            EMPFEC         8Y 0O  7 63EDTWRD('    /  /  ')                
+     A          R CTL001                    SFLCTL(SFL001)                      
+     A*%%TS  SD  20250314  231527  TSOCME      REL-V7R5M0  5770-WDS             
+     A                                      OVERLAY 
+     A N92                                  SFLDSP                              
+     A N93                                  SFLDSPCTL                           
+     A  93                                  SFLCLR                              
+     A N91                                  SFLEND(*MORE)                       
+     A                                      SFLSIZ(1200)                        
+     A                                      SFLPAG(0012)                        
+     A                                  1  2SYSNAME                             
+     A                                  2  2USER                                
+     A                                  1 31'CONTACTO COMERCIALES'              
+     A                                      DSPATR(HI)                          
+     A                                  1 71DATE                                
+     A                                      EDTCDE(Y)                           
+     A                                  2 71TIME                                
+     A                                  3  2'                                  -
+     A                                                                         -
+     A                                              '                           
+     A                                      DSPATR(UL)                          
+     A                                  4 19'M: MODIFICAR    C: CONSULTAR    D:-
+     A                                       ELIMINAR'                          
+     A                                      DSPATR(HI)                          
+     A                                  5  2'                                  -
+     A                                                                         -
+     A                                              '                           
+     A                                      DSPATR(UL)                          
+     A                                  6  3'OP COD.   NOMBRE                  -
+     A                                                        GIRO    FEC. CREA-
+     A                                      CION'                               
+     A                                      DSPATR(HI)                          
+     A                                      DSPATR(RI)                          
+     A          R CRTCMD                                                        
+     A*%%TS  SD  20250320  173824  TSOCME      REL-V7R5M0  5770-WDS             
+     A                                 21  3'-----------------------------------
+     A                                      ------------------------------------
+     A                                      --------'                           
+     A                                      DSPATR(HI)                          
+     A                                 22 36'F06 = ALTA'                        
+     A                                      COLOR(BLU)                          
+     A                                 22  3'F03 = SALIR'                       
+     A                                      COLOR(BLU)                          
+     A                                 22 58'F09 = IMPRIMIR REPORTE'            
+     A                                      COLOR(BLU)                   
+     A          R CRTCON                                                 
+     A*%%TS  SD  20250318  051319  TSOCME      REL-V7R5M0  5770-WDS      
+     A                                      CF12(12 'TECLA F12 CANCELAR')
+     A                                  1 31'CONTACTO COMERCIALES'       
+     A                                      DSPATR(HI)                   
+     A                                  2 32'CONSULTA DE DATOS'          
+     A                                      COLOR(BLU)                   
+     A                                  6  7'CODIGO DE EMPRESA.....:'    
+     A                                      DSPATR(HI)                   
+     A                                  7  7'NOMBRE DE EMPRESA.....:'    
+     A                                  8  7'NUMERO RFC............:'    
+     A                                  9  7'GIRO..................:'    
+     A                                 10  7'DIRECCION 1...........:'    
+     A                                 11  7'DIRECCCION 2..........:'    
+     A                                 12  7'ESTADO................:'    
+     A                                 13  7'PAIS..................:'    
+     A                                 14  7'NUMERO DE TELEFONO....:'    
+     A                                 15  7'NUMERO DE CELULAR.....:'    
+     A                                 16  7'DIRECCION DE CORREO...:'  
+     A                                 18  7'REPRESENTANE LEGAL....:'           
+     A                                 20  7'FECHA DE APERTURA.....:'           
+     A                                 22  3'-----------------------------------
+     A                                      ------------------------------------
+     A                                      -------'                            
+     A                                      DSPATR(HI)                          
+     A                                 23 63'F12 = REGRESAR'                    
+     A                                      COLOR(BLU)                          
+     A            EMPNOM        40A  O  7 31DSPATR(UL)                          
+     A            EMPDR1        40A  O 10 31DSPATR(UL)                          
+     A            EMPDR2        40A  O 11 31DSPATR(UL)                          
+     A            EMPEST        30A  O 12 31DSPATR(UL)                          
+     A            EMPPAI        20A  O 13 31DSPATR(UL)                          
+     A            EMPRPT        50A  O 19 31                                    
+     A            EMPRFC        12A  O  8 31DSPATR(UL)                          
+     A            EMPCOD         5Y 0O  6 31DSPATR(UL)                          
+     A                                      DSPATR(HI)                          
+     A                                      EDTCDE(Z)                           
+     A            EMPGRO         5Y 0O  9 31DSPATR(UL)                          
+     A                                      EDTCDE(Z)      
+     A            EMPTEL        10Y 0O 14 31DSPATR(UL)                     
+     A                                      EDTCDE(Z)                      
+     A            EMPCEL        10Y 0O 15 31DSPATR(UL)                     
+     A                                      EDTCDE(Z)                      
+     A            EMPFEC         8Y 0O 20 31DSPATR(UL)                     
+     A                                      EDTWRD('    /  /  ')           
+     A            COMP01        50A  O 16 31DSPATR(UL)                     
+     A            COMP02        50A  O 17 31DSPATR(UL)                     
+     A                                 20 43'(AAAA/MM/DD)'                 
+     A                                      DSPATR(HI)                     
+     A                                  1  2SYSNAME                        
+     A                                  1 72DATE                           
+     A                                      EDTCDE(Y)                      
+     A                                  2  2USER                           
+     A                                  2 72TIME                           
+     A            EMPCID         5Y 0B 18 31EDTCDE(Z)                      
+     A            EMPGDT        40A  O  9 37                               
+     A          R CRTMOD                                                   
+     A*%%TS  SD  20250317  231741  TSOCME      REL-V7R5M0  5770-WDS        
+     A                                      CF12(12 'TECLA F12 = CANCELAR')
+     A                                      RTNCSRLOC(&RECORD &FIELD)      
+     A            RECORD        10A  H                                     
+     A            FIELD         10A  H                                     
+     A                                  1  2SYSNAME                        
+     A                                  1 31'CONTACTO COMERCIALES'         
+     A                                      DSPATR(HI)                     
+     A                                  1 71DATE                           
+     A                                      EDTCDE(Y)                      
+     A                                  2  2USER                           
+     A                                  2 71TIME                           
+     A                                  6  7'CODIGO DE EMPRESA.....:'      
+     A                                      DSPATR(HI)                     
+     A                                  7  7'NOMBRE DE EMPRESA.....:'      
+     A                                  8  7'NUMERO RFC............:'      
+     A                                  9  7'GIRO..................:'      
+     A                                 10  7'DIRECCION 1...........:'      
+     A                                 11  7'DIRECCCION 2..........:'      
+     A                                 12  7'ESTADO................:'      
+     A                                 13  7'PAIS..................:'      
+     A                                 14  7'NUMERO DE TELEFONO....:'     
+     A                                 15  7'NUMERO DE CELULAR.....:'           
+     A                                 16  7'DIRECCION DE CORREO...:'           
+     A                                 18  7'REPRESENTANE LEGAL....:'           
+     A                                 20  7'FECHA DE APERTURA.....:'           
+     A                                 22  3'-----------------------------------
+     A                                      ------------------------------------
+     A                                      -------'                            
+     A                                      DSPATR(HI)                          
+     A                                 23 63'F12 = REGRESAR'                    
+     A                                      COLOR(BLU)                          
+     A                                  2 30'MODIFICACION DE DATOS'             
+     A                                      COLOR(BLU)                          
+     A            EMPNOM        40A  B  7 31DSPATR(UL)                          
+     A  26                                  DSPATR(PC)                          
+     A            EMPGRO         5D 0B  9 31DSPATR(UL)                          
+     A  28                                  DSPATR(PC)                          
+     A            EMPDR1        40A  B 10 31DSPATR(UL)                          
+     A  29                                  DSPATR(PC)                          
+     A            EMPDR2        40A  B 11 31DSPATR(UL)                          
+     A  30                                  DSPATR(PC)              
+     A            EMPEST        30A  B 12 31DSPATR(UL)          
+     A  31                                  DSPATR(PC)          
+     A            EMPPAI        20A  B 13 31DSPATR(UL)          
+     A  32                                  DSPATR(PC)          
+     A            EMPTEL        10D 0B 14 31DSPATR(UL)          
+     A  33                                  DSPATR(PC)          
+     A            EMPCEL        10D 0B 15 31DSPATR(UL)          
+     A  34                                  DSPATR(PC)          
+     A            EMPRPT        50A  O 19 31                    
+     A  36                                  DSPATR(PC)          
+     A            EMPFEC         8Y 0B 20 31DSPATR(UL)          
+     A  37                                  DSPATR(PC)          
+     A                                      EDTWRD('    /  /  ')
+     A            EMPRFC        12A  B  8 31DSPATR(UL)          
+     A  27                                  DSPATR(PC)          
+     A            EMPCOD         5S 0O  6 31DSPATR(HI)          
+     A                                      DSPATR(UL)          
+     A            ERRMSG        70A  O 24  4COLOR(RED)          
+     A            COMP01        50A  B 16 31DSPATR(UL)          
+     A  35                                  DSPATR(PC)          
+     A            COMP02        50A  B 17 31DSPATR(UL)                        
+     A                                 20 42'(AAAA/MM/DD)'                    
+     A                                      DSPATR(HI)                        
+     A                                  9 37'+'                               
+     A                                      DSPATR(HI)                        
+     A            EMPGDT        40A  O  9 39                                  
+     A                                 23  5'F01 = CONFIRMAR'                 
+     A                                      COLOR(BLU)                        
+     A                                 23 35'F04 = AYUDA'                     
+     A                                      COLOR(BLU)                        
+     A            EMPCID         5Y 0B 18 31DSPATR(UL)                        
+     A                                      EDTCDE(Z)                         
+     A  36                                  DSPATR(PC)                        
+     A                                 18 37'+'                               
+     A                                      DSPATR(HI)                        
+     A          R CRTDEL                                                      
+     A*%%TS  SD  20250318  051319  TSOCME      REL-V7R5M0  5770-WDS           
+     A                                      CF11(11 'TECLFA F11 = CONFIRMAR') 
+     A                                      CF12(12 'TECLA F12 = CANCELAR')   
+     A                                  1 31'CONTACTO COMERCIALES'            
+     A                                      DSPATR(HI)                          
+     A                                  6  7'CODIGO DE EMPRESA.....:'           
+     A                                      DSPATR(HI)                          
+     A                                  7  7'NOMBRE DE EMPRESA.....:'           
+     A                                  8  7'NUMERO RFC............:'           
+     A                                  9  7'GIRO..................:'           
+     A                                 10  7'DIRECCION 1...........:'           
+     A                                 11  7'DIRECCCION 2..........:'           
+     A                                 12  7'ESTADO................:'           
+     A                                 13  7'PAIS..................:'           
+     A                                 14  7'NUMERO DE TELEFONO....:'           
+     A                                 15  7'NUMERO DE CELULAR.....:'           
+     A                                 16  7'DIRECCION DE CORREO...:'           
+     A                                 18  7'REPRESENTANE LEGAL....:'           
+     A                                 20  7'FECHA DE APERTURA.....:'           
+     A                                 22  3'-----------------------------------
+     A                                      ------------------------------------
+     A                                      -------'                            
+     A                                      DSPATR(HI)                          
+     A                                 23 63'F12 = REGRESAR'         
+     A                                      COLOR(BLU)            
+     A            EMPNOM        40A  O  7 31DSPATR(UL)            
+     A            EMPGRO         5Y 0O  9 31DSPATR(UL)            
+     A                                      EDTCDE(Z)             
+     A            EMPDR1        40A  O 10 31DSPATR(UL)            
+     A            EMPDR2        40A  O 11 31DSPATR(UL)            
+     A            EMPEST        30A  O 12 31DSPATR(UL)            
+     A            EMPPAI        20A  O 13 31DSPATR(UL)            
+     A            EMPTEL        10Y 0O 14 31DSPATR(UL)            
+     A                                      EDTCDE(Z)             
+     A            EMPCEL        10Y 0O 15 31DSPATR(UL)            
+     A                                      EDTCDE(Z)             
+     A            EMPRPT        50A  O 19 31                      
+     A            EMPFEC         8Y 0O 20 31DSPATR(UL)            
+     A                                      EDTWRD('    /  /  ')  
+     A                                 23  8'F11 = CONFIRMAR'     
+     A                                      COLOR(BLU)            
+     A                                  2 31'ELIMINACION DE DATOS'
+     A                                      COLOR(BLU)            
+     A            EMPRFC        12A  O  8 31DSPATR(UL)              
+     A            EMPCOD         5Y 0O  6 31DSPATR(UL)                     
+     A                                      EDTCDE(Z)                      
+     A            COMP01        50A  O 16 31DSPATR(UL)                     
+     A            COMP02        50A  O 17 31DSPATR(UL)                     
+     A                                 20 44'(AAAA/MM/DD)'                 
+     A                                      DSPATR(HI)                     
+     A                                  1  2SYSNAME                        
+     A                                  2  2USER                           
+     A                                  1 72DATE                           
+     A                                      EDTCDE(Y)                      
+     A                                  2 72TIME                           
+     A            EMPCID         5Y 0O 18 31EDTCDE(Z)                      
+     A                                      DSPATR(UL)                     
+     A            EMPGDT        40A  O  9 37                               
+     A          R CRTALT                                                   
+     A*%%TS  SD  20250317  231741  TSOCME      REL-V7R5M0  5770-WDS        
+     A                                      CF12(12 'TECLA F12 = CANCELAR')
+     A                                      RTNCSRLOC(&RECORD &FIELD)      
+     A            RECORD        10A  H                                     
+     A            FIELD         10A  H                                
+     A                                  1 31'CONTACTO COMERCIALES'               
+     A                                      DSPATR(HI)                           
+     A                                  7  5'NOMBRE DE EMPRESA.....:'            
+     A                                  8  5'NUMERO RFC............:'            
+     A                                  9  5'GIRO..................:'            
+     A                                 10  5'DIRECCION 1...........:'            
+     A                                 11  5'DIRECCCION 2..........:'            
+     A                                 12  5'ESTADO................:'            
+     A                                 13  5'PAIS..................:'            
+     A                                 14  5'NUMERO DE TELEFONO....:'            
+     A                                 15  5'NUMERO DE CELULAR.....:'            
+     A                                 16  5'DIRECCION DE CORREO...:'            
+     A                                 18  5'REPRESENTANE LEGAL....:'            
+     A                                 20  5'FECHA DE APERTURA.....:'            
+     A                                 22  3'----------------------------------- 
+     A                                      ------------------------------------ 
+     A                                      -------'                             
+     A                                      DSPATR(HI)                           
+     A                                 23 61'F12 = REGRESAR'                     
+     A                                      COLOR(BLU)                           
+     A                                 23  5'F01 = CONFIRMAR' 
+     A                                      COLOR(BLU)        
+     A                                  2 33'CREAR NUEVO DATO'
+     A                                      COLOR(BLU)        
+     A            EMPDR1        40A  B 10 29DSPATR(UL)        
+     A  29                                  DSPATR(PC)        
+     A            EMPDR2        40A  B 11 29DSPATR(UL)        
+     A  30                                  DSPATR(PC)        
+     A            EMPEST        30A  B 12 29DSPATR(UL)        
+     A  31                                  DSPATR(PC)        
+     A            EMPPAI        20A  B 13 29DSPATR(UL)        
+     A  32                                  DSPATR(PC)        
+     A            EMPRPT        50A  O 19 29                  
+     A  36                                  DSPATR(PC)        
+     A            EMPNOM        40A  B  7 29DSPATR(UL)        
+     A  26                                  DSPATR(PC)        
+     A            EMPGRO         5Y 0B  9 29EDTCDE(Z)         
+     A                                      DSPATR(UL)        
+     A  28                                  DSPATR(PC)        
+     A            EMPTEL        10Y 0B 14 29DSPATR(UL)      
+     A                                      EDTCDE(Z)                 
+     A  33                                  DSPATR(PC)                
+     A            EMPCEL        10Y 0B 15 29DSPATR(UL)                
+     A                                      EDTCDE(Z)                 
+     A  34                                  DSPATR(PC)                
+     A            EMPFEC         8Y 0B 20 29DSPATR(UL)                
+     A                                      EDTWRD('    /  /  ')      
+     A  37                                  DSPATR(PC)                
+     A            EMPRFC        12A  B  8 29DSPATR(UL)                
+     A  27                                  DSPATR(PC)                
+     A                                  6  5'CODIGO DE EMPRESA.....:' 
+     A                                      DSPATR(HI)                
+     A            EMPCOD         5Y 0B  6 29EDTCDE(Z)                 
+     A  25                                  DSPATR(PC)                
+     A            ERRMSG        70A  O 24  5COLOR(RED)                
+     A            COMP01        50A  B 16 29DSPATR(UL)                
+     A  35                                  DSPATR(PC)                
+     A            COMP02        50A  B 17 29DSPATR(UL)                
+     A                                 20 40'(AAAA/MM/DD)'            
+     A                                      DSPATR(HI)                  
+     A            EMPGDT        40A  O  9 37               
+     A                                  9 35'+'            
+     A                                      DSPATR(HI)     
+     A                                 23 35'F04 = Ayuda'  
+     A                                      COLOR(BLU)     
+     A                                  1  3SYSNAME        
+     A                                  2  3USER           
+     A                                  1 71DATE           
+     A                                      EDTCDE(Y)      
+     A                                  2 71TIME           
+     A            EMPCID         5Y 0B 18 29DSPATR(UL)     
+     A                                      EDTCDE(Z)      
+     A  36                                  DSPATR(PC)     
+     A                                 18 35'+'            
+     A                                      DSPATR(HI)                                                                                   
