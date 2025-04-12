@@ -1,0 +1,36 @@
+     A*%%TS  SD  20250317  204633  TSOCME      REL-V7R5M0  5770-WDS        
+     A*%%EC                                                                
+     A                                      DSPSIZ(24 80 *DS3)             
+     A                                      CF03(03 'TECLA F03 = SALIR')   
+     A          R WDWSFL                    SFL                            
+     A*%%TS  SD  20250317  204633  TSOCME      REL-V7R5M0  5770-WDS        
+     A            WDWOPC         1A  I  4  2DSPATR(UL)                     
+     A            CONCOD         5Y 0O  4  5EDTCDE(Z)                      
+     A            CONNOM        50A  O  4 12                               
+     A          R WDWCTL                    SFLCTL(WDWSFL)                 
+     A*%%TS  SD  20250317  204633  TSOCME      REL-V7R5M0  5770-WDS        
+     A                                      CF01(01 'TECLA F01 = ACEPTAR') 
+     A N17                                  SFLDSP                         
+     A N16                                  SFLDSPCTL                      
+     A  16                                  SFLCLR                         
+     A N20                                  SFLEND(*MORE)                  
+     A                                      SFLSIZ(0120)                   
+     A                                      SFLPAG(0005)                   
+     A                                      WINDOW(10 13 10 63)            
+     A                                      WDWBORDER((*COLOR GRN) (*DSPATR RI)-  
+     A                                       (*CHAR '        '))                  
+     A                                  3  2'OP COD    NOMBRE CONTACTO         -  
+     A                                                                '           
+     A                                      DSPATR(HI)                            
+     A                                      DSPATR(RI)                            
+     A                                  2  2' X: ELEGIR    F01: CONFIRMAR     F-  
+     A                                      03: SALIR                 '           
+     A                                      DSPATR(UL)                            
+     A                                  1  2'            AYUDA CONTACTO DE EMPR-  
+     A                                      ESAS                      '           
+     A                                      DSPATR(HI)                            
+     A                                      DSPATR(UL)                            
+     A          R P01                                                             
+     A*%%TS  SD  20250314  233257  TSOCME      REL-V7R5M0  5770-WDS               
+     A                                      ASSUME                                
+     A                                  1  3' '                                   
