@@ -26,7 +26,7 @@
       WCONNOM CHAR(50);                                                
      END-PR;                                                           
 ***--------------------------------------------------------------------
-     DCL-S   ERRARR     CHAR(70) DIM(8) CTDATA PERRCD(1);              
+     DCL-S   ERRARR     CHAR(70) DIM(9) CTDATA PERRCD(1);              
      DCL-S   RRN       PACKED(5:0);                                    
      DCL-S   wEMPNOM    CHAR(40);                                      
      DCL-S   wGRODES    CHAR(40);                                      
@@ -47,21 +47,22 @@
      DCL-S   wEMPFEC   PACKED(8:0);                                    
      DCL-S   wEMPRFC     Char(12);                                     
 ***--------------------------------------------------------------------
-     DOW *IN03 = *OFF;     
-      SR_DATOS();                                                      
-      WRITE CRTCMD;                                                    
-      EXFMT CTL001;                                                    
-      Select;                                                          
-       When *in03;                                                     
-       When *in06;                                                     
-         PR_ALTA();                                                    
-       WHEN *IN09;                                                     
-         REP0001();                                                    
-       Other;                                                          
-         PR_CMD();                                                     
-       Endsl;                                                          
-     ENDDO;                                                            
-     *INLR = *ON;                                                      
+     SR_DATOS();                                                      
+     DOW *IN03 = *OFF;                                                
+      WRITE CRTCMD;                                                   
+      EXFMT CTL001;                                                   
+      Select;                                                         
+       When *in03;                                                    
+       When *in06;                                                    
+         PR_ALTA();                                                   
+         SR_DATOS();                                                  
+       WHEN *IN09;                                                    
+         REP0001();                                                   
+       Other;                                                         
+         PR_CMD();                                                    
+       Endsl;                                                         
+     ENDDO;                                                           
+     *INLR = *ON;                                                                                                         
 **----------------------------------------------------------           
 ** EJECUTA SUBRUTINA DATOS                                             
 **----------------------------------------------------------           
@@ -376,7 +377,31 @@
        EXFMT CRTCON;                                                    
       ENDDO;                                                            
       RETURN;                                                           
-     END-PROC;                                                          
+     END-PROC;
+**---------------------------------------------------------------------
+** EJECUTA PROCEDIMIENTO BUSCA POR CODIGO DE EMPRESA                   
+**---------------------------------------------------------------------
+    DCL-PROC PR_BUSCA;                                                 
+    CLEAR ERRMSG;                                                      
+  // Inicializa el Subfile                                             
+    *IN93 = *ON;                                                       
+    WRITE CTL001;                                                      
+    *IN93 = *OFF;                                                      
+    *IN92 = *OFF;                                                      
+    RRN = 0;                                                           
+    SETLL WBUS MAEEMP;                                                 
+     READ(N) MAEEMP;                                                   
+     DOW NOT %EOF(MAEEMP);                                             
+      RRN +=1;                                                         
+      WRITE SFL001;                                                    
+      READ MAEEMP;     
+     ENDDO;                                  
+  *// Evalua el despliegue del Subfile.      
+     IF RRN = 0;                             
+       SR_DATOS();                           
+       ERRMSG = ERRARR(9);                   
+     ENDIF;                                  
+     END-PROC;                               
 **                                                            
 CAMPO EN BLANCO, POR FAVOR LLENARLO                           
 CODIGODE EMPRESA NO CUMPLE CON SU LONGITUD DE 5 CARACTERES    
@@ -385,4 +410,5 @@ NUMERO DE GIRO NO CUMPLE CON SU LONGITUD DE 5 CARACTERES
 NUMERO DE TELEFONO NO CUMPLE CON SU LONGITUD DE 10 CARACTERES 
 NUMERO DE CELULAR NO CUMPLE CON SU LONGITUD DE 10 CARACTERES  
 FECHA NO VALIDA                                               
-DIRECCION DE CORREO NO VALIDA                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+DIRECCION DE CORREO NO VALIDA 
+CODIGO DE EMPRESA NO EXISTENTE, INGRESE UN CODIGO VALIDO
