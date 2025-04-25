@@ -24,3 +24,8 @@ Por último, se encuentra el PGM REP0001 que genera la impresión de un reporte 
 giro, descripcion de giro, representante y fecha de apertura)
 
 Nota: Toda la codificación es en RPG FULL FREE pero es necesario respetar algunas columnas en su codificación, en caso del archivo AGE0001.RPGLE su codificación inició a partir de la columna 8, a excepción de la matriz que contiene los arreglos, dicha matriz debe ser codificada desde la columna #1 iniciando con sus ** y en la siguiente línea los 9 mensajes de error.
+
+
+Pantalla inicial donde se despliega todos los registros de empresa
+![image](https://github.com/user-attachments/assets/a0154525-7329-4ad9-8ed1-540cc65a6e2b)
+
