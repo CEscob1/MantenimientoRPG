@@ -14,50 +14,50 @@
      A            EMPGRO         5Y 0O  7 55EDTCDE(Z)                           
      A            EMPCOD         5Y 0O  7  6EDTCDE(Z)                           
      A            EMPFEC         8Y 0O  7 63EDTWRD('    /  /  ')                
-     A          R CTL001                    SFLCTL(SFL001)                      
-     A*%%TS  SD  20250314  231527  TSOCME      REL-V7R5M0  5770-WDS             
-     A                                      OVERLAY 
-     A N92                                  SFLDSP                              
-     A N93                                  SFLDSPCTL                           
-     A  93                                  SFLCLR                              
-     A N91                                  SFLEND(*MORE)                       
-     A                                      SFLSIZ(1200)                        
-     A                                      SFLPAG(0012)                        
-     A                                  1  2SYSNAME                             
-     A                                  2  2USER                                
-     A                                  1 31'CONTACTO COMERCIALES'              
-     A                                      DSPATR(HI)                          
-     A                                  1 71DATE                                
-     A                                      EDTCDE(Y)                           
-     A                                  2 71TIME                                
-     A                                  3  2'                                  -
-     A                                                                         -
-     A                                              '                           
-     A                                      DSPATR(UL)                          
-     A                                  4 19'M: MODIFICAR    C: CONSULTAR    D:-
-     A                                       ELIMINAR'                          
-     A                                      DSPATR(HI)                          
-     A                                  5  2'                                  -
-     A                                                                         -
-     A                                              '                           
-     A                                      DSPATR(UL)                          
-     A                                  6  3'OP COD.   NOMBRE                  -
-     A                                                        GIRO    FEC. CREA-
-     A                                      CION'                               
-     A                                      DSPATR(HI)                          
-     A                                      DSPATR(RI)                          
-     A          R CRTCMD                                                        
-     A*%%TS  SD  20250320  173824  TSOCME      REL-V7R5M0  5770-WDS             
-     A                                 21  3'-----------------------------------
-     A                                      ------------------------------------
-     A                                      --------'                           
-     A                                      DSPATR(HI)                          
-     A                                 22 36'F06 = ALTA'                        
-     A                                      COLOR(BLU)                          
-     A                                 22  3'F03 = SALIR'                       
-     A                                      COLOR(BLU)                          
-     A                                 22 58'F09 = IMPRIMIR REPORTE'            
-     A                                      COLOR(BLU)                   
+     A          R CTL001                    SFLCTL(SFL001)             
+     A*%%TS  SD  20250425  032217  TSOCME      REL-V7R5M0  5770-WDS    
+     A                                      SFLSIZ(1200)               
+     A                                      SFLPAG(0012)               
+     A                                      OVERLAY                    
+     A N92                                  SFLDSP                     
+     A N93                                  SFLDSPCTL                  
+     A  93                                  SFLCLR                     
+     A N91                                  SFLEND(*MORE)              
+     A                                  1  2SYSNAME                    
+     A                                  2  2USER                       
+     A                                  1 31'CONTACTO COMERCIALES'     
+     A                                      DSPATR(HI)                 
+     A                                  1 71DATE                       
+     A                                      EDTCDE(Y)                  
+     A                                  2 71TIME                       
+     A                                  3  2'                          
+     A                                                                
+     A                                              '                  
+     A                                      DSPATR(UL)                 
+     A                                  4 19'M: MODIFICAR    C: CONSULT
+     A                                       ELIMINAR'                 
+     A                                      DSPATR(HI)                 
+     A                                  6  3'OP COD.   NOMBRE          
+     A                                                        GIRO    F
+     A                                      CION'                      
+     A                                      DSPATR(RI)                 
+     A                                      COLOR(BLU)                 
+     A                                  5  3'BUSCAR POR CODIGO: '      
+     A            WBUS           5D 0I  5 25DSPATR(HI)                 
+     A                                      DSPATR(UL)                 
+     A          R CRTCMD                                               
+     A*%%TS  SD  20250425  144630  TSOCME      REL-V7R5M0  5770-WDS    
+     A                                 21  3'--------------------------
+     A                                      ---------------------------
+     A                                      --------'                  
+     A                                      DSPATR(HI)                 
+     A                                 22 36'F06 = ALTA'               
+     A                                      COLOR(BLU)                 
+     A                                 22  3'F03 = SALIR'              
+     A                                      COLOR(BLU)                 
+     A                                 22 58'F09 = IMPRIMIR REPORTE'   
+     A                                      COLOR(BLU)                 
+     A            ERRMSG        70   O 23  4COLOR(RED)                  
      A          R CRTCON                                                 
      A*%%TS  SD  20250318  051319  TSOCME      REL-V7R5M0  5770-WDS      
      A                                      CF12(12 'TECLA F12 CANCELAR')
