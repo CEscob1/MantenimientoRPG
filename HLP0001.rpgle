@@ -41,7 +41,7 @@
        CLEAR WDWOPC;                                      
        *IN16 = *OFF;                                      
        *IN17 = *OFF;                                      
-       RRN = 0;                                           
+       RRN = 1;                                           
        *in12=*Off;                                        
        *IN01 = *OFF;                                      
   // Llena el Subfile.                                    
@@ -53,7 +53,7 @@
          READ MAEGRO;                                     
         ENDDO;                                            
  *// Evalua el despliegue del Subfile.                    
-        IF RRN = 0;                                       
+        IF RRN = 1;                                       
            *IN17 = *ON;                                   
         ENDIF;                                            
      END-PROC;          
@@ -74,10 +74,12 @@
            *IN03 = *ON;                                       
            RETURN;                                            
           ENDIF;                                              
-       ENDIF;                                                 
-       *IN01 = *OFF;                                          
+       ENDIF;                                                                                           
        RRN+=1;       
-       Chain RRN WDWSFL;  
+       Chain RRN WDWSFL; 
+       IF %FOUND;              
+       CHAIN(N) GROCOD MAEGRO;
+       ENDIF;                   
       Enddo;              
      RETURN;              
      END-PROC;                                                                                                                                     
