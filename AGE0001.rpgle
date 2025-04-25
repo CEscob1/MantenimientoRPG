@@ -91,7 +91,8 @@
 **---------------------------------------------------------------------
 ** EJECUTA PROCEDIMIENTO ADICIONA                                      
 **---------------------------------------------------------------------
-    DCL-PROC PR_ALTA;                                                  
+    DCL-PROC PR_ALTA;
+       CLEAR ERRMSG; // se adiciona la limpieza de esta variable para evitar errores en la rutina de validación
        clear crtalt;                                                   
        DOW *IN12 = *OFF;                                               
         EXFMT CRTALT;                                                  
@@ -129,7 +130,8 @@
 **---------------------------------------------------------------------
 ** EJECUTA PROCEDIMIENTO MODIFICA                                      
 **---------------------------------------------------------------------
-    DCL-PROC PR_MODIFICA;                                              
+    DCL-PROC PR_MODIFICA; 
+      CLEAR ERRMSG; // se adiciona la limpieza de esta variable para evitar errores en la rutina de validación
       Chain(n) empcod MAEEMP;                                          
       COMP01 = %SUBST(EMPMAIL: 1 : 50);                                
       COMP02 = %SUBST(EMPMAIL:51);                                     
@@ -275,7 +277,8 @@
         *IN34 = *ON;                                                   
         ERRMSG = ERRARR(6);                                            
        ENDIF;                                                          
-                                                                       
+       
+       //En el ambiente de PUB400 no soporta las expresiones comunes por el CSSID, se realiza validación con valores en hexadecimal                                                         
        IF COMP01 <> *BLANKS OR COMP02 <> *BLANKS;                      
         EMPMAIL = %TRIM(COMP01) + %TRIM(COMP02);                       
                                                                        
@@ -331,7 +334,7 @@
               ERRMSG = ERRARR(8);                                      
               RETURN;                                                  
      ENDIF;                                                            
-                                                                       
+       WCONCOD = EMPCOD; // Durante la modificación la logica lo toma como un campo vacío se adiciona esto para recuperar el empcod del MAEEMP
        IF WCONCOD = *ZEROS;                                            
         *IN36 = *ON;                                                   
         ERRMSG = ERRARR(1);                                            
@@ -398,7 +401,7 @@
      ENDDO;                                  
   *// Evalua el despliegue del Subfile.      
      IF RRN = 0;                             
-       SR_DATOS();                           
+       SR_DATOS(); // Si la clave no existe, se cargará el SFL desde el valor más bajo contenido en el MAEEMP                          
        ERRMSG = ERRARR(9);                   
      ENDIF;                                  
      END-PROC;                               
